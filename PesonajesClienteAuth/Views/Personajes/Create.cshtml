@@ -1,0 +1,48 @@
+﻿@model Personajes
+@inject PesonajesClienteAuth.Repositories.IRepositoryPersonajes Per
+    <div>
+        <a asp-controller="Personajes" asp-action="Index" class="btn btn-primary">Ir a la lista de Personajes</a>
+    </div>
+<h2 class="text-primary">Crear nuevo personaje</h2>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label class="col-form-label font-weight-bold">Nombre</label>
+        <input asp-for="NombrePersonaje" class="form-control" />
+        <span asp-validation-for="NombrePersonaje" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Imagen" class="col-form-label font-weight-bold"></label>
+        <input asp-for="Imagen" class="form-control" />
+        <span asp-validation-for="Imagen" class="text-danger"></span>
+    </div>
+    @*<div class="form-group">
+    <label asp-for="IdSerie" class="col-form-label"></label>
+    <input asp-for="IdSerie" class="form-control" />
+    <span asp-validation-for="IdSerie" class="text-danger"></span>*@
+@*</div>*@
+    <div class="form-group">
+        <label class="col-form-label font-weight-bold">Serie</label>
+        <select class="form-control" asp-for="IdSerie">
+            <option selected="selected" disabled="disabled" value="">Selecciona una opción</option>
+            @foreach (var item in await Per.GetSeries())
+            {
+             <option value=@item.IdSerie>@item.NombreSerie</option>
+            }
+            
+        </select>
+        <span asp-validation-for="IdSerie" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success" style="width:auto">
+            Insertar personaje
+        </button>
+        <a asp-controller="Personajes" asp-action="Index" class="btn btn-danger">Cancelar</a>
+    </div>
+</form>
+@*<br />
+<div>
+    <a asp-controller="Personajes" asp-action="Index" class="btn btn-primary">Ir a la lista de Personajes</a>
+</div>*@

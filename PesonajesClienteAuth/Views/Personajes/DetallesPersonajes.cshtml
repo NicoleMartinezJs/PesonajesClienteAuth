@@ -1,0 +1,13 @@
+﻿@model Personajes
+<div class="text-center">
+        <center>
+            <div class="card" style="width:40%;">
+                <img class="card-img-top" src="@Model.Imagen" alt="Card image cap" style="width:100%;height:100%">
+                <div class="card-body">
+                    <h3 class="card-title">@Model.NombrePersonaje</h3>
+                    @*<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*@
+                    <a asp-controller="Personajes" asp-action="Index" class="btn btn-primary btn-lg btn-block">Ir a la lista de Personajes</a>
+                </div>
+            </div>
+        </center>
+</div>

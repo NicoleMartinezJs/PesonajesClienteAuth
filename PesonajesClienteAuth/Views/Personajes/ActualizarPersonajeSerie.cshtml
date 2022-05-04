@@ -1,0 +1,42 @@
+﻿@model Personajes
+@inject PesonajesClienteAuth.Repositories.IRepositoryPersonajes Per
+<div>
+    <a asp-controller="Personajes" asp-action="Index" class="btn btn-primary">Ir a la lista de Personajes</a>
+</div>
+<h2 class="text-primary">Actualizar la serie al personaje</h2>
+<form asp-action="ActualizarPersonajeSerie" method="post">
+    <div class="form-group">
+        <label class="col-form-label font-weight-bold">Seleccione una serie</label>
+        <select class="form-control" asp-for="IdSerie">
+            <option selected="selected" disabled="disabled" value="">Selecciona una opción</option>
+            @foreach (var item in await Per.GetSeries())
+            {
+                <option value=@item.IdSerie>@item.NombreSerie</option>
+            }
+
+        </select>
+    </div>
+    @*<input type="hidden" asp-for="IdPersonaje" />
+    <input type="hidden" asp-for="NombrePersonaje" />
+    <input type="hidden" asp-for="Imagen" />*@
+<div class="form-group">
+    <label class="col-form-label font-weight-bold">Seleccione un personaje</label>
+    <select class="form-control" asp-for="IdPersonaje">
+        <option selected="selected" disabled="disabled" value="">Selecciona una opción</option>
+        @foreach (var item in await Per.GetPersonajes())
+        {
+            <option value=@item.IdPersonaje>@item.NombrePersonaje</option>
+        }
+
+    </select>
+    @*<input type="hidden" asp-for="NombrePersonaje" />
+    <input type="hidden" asp-for="Imagen" />*@
+</div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success" style="width:auto">
+            Guardar cambios
+        </button>
+        <a asp-controller="Personajes" asp-action="Index" class="btn btn-danger">Cancelar</a>
+    </div>
+</form>
+

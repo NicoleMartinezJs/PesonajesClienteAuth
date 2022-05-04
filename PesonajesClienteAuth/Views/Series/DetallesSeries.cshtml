@@ -1,0 +1,16 @@
+﻿@model Series
+
+
+<div class="text-center">
+    <center>
+        <div class="card" style="width:40%;">
+            <img class="card-img-top" src="@Model.Imagen" alt="Card image cap" style="width:100%;height:100%">
+            <div class="card-body">
+                <h3 class="card-title font-weight-bold">@Model.NombreSerie</h3>
+                <p class="card-text"><span style="font-weight:bold;">Nota:</span> @Model.Puntuacion</p>
+                <p class="card-text"><span style="font-weight:bold;">Fecha:</span> @Model.Fecha</p>
+                <a asp-controller="Personajes" asp-action="ListaPersonajesPorId" asp-route-id=@Model.IdSerie class="btn btn-success btn-lg btn-block">Personajes</a>
+            </div>
+        </div>
+    </center>
+</div>

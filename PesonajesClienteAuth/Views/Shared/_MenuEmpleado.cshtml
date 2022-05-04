@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "_MenuEmpleado";
+}
+@if (Context.User.Identity.IsAuthenticated == false)
+{
+        <li class="nav-item">
+            <a asp-action="Login" class="nav-link text-white btn btn-primary" asp-controller="Manage">
+                Log in
+            </a>
+        </li>
+        }
+        else
+        {
+        <li class="nav-item">
+            <a asp-action="CerrarSesion" class="nav-link text-white btn btn-danger" asp-controller="Manage">
+                Cerrar sesión
+            </a>
+            <span style="color:black">@Context.User.Identity.Name</span>
+        </li>
+        }

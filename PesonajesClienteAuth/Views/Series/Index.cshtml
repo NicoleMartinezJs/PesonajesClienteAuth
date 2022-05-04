@@ -1,0 +1,30 @@
+﻿@model List<Series>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<table class="table" name="example" id="example">
+    <thead class="thead-dark">
+        <tr>
+            @*<th>ID</th>*@
+            <th>NOMBRE</th>
+            <th>IMAGEN</th>
+            <th>PUNTUACIÓN</th>
+            <th>FECHA</th>
+        </tr>
+        </thead>
+        @foreach (Series emp in Model)
+        {
+            <tr>
+                @*<td>@emp.IdPersonaje</td>*@
+                <td>@emp.NombreSerie</td>
+                <td><img src="@emp.Imagen" style="width:150px;height:100px" /></td>
+                <td>@emp.Puntuacion</td>
+                <td>@emp.Fecha</td>
+
+
+            </tr>
+        }
+</table>

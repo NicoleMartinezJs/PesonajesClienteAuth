@@ -1,0 +1,7 @@
+﻿@model PesonajesClienteAuth.Models.Personajes
+
+<div class="form-group">
+    <label asp-for="NombrePersonaje" class="control-label"></label>
+    @Html.DropDownListFor(m => m.NombrePersonaje, new SelectList(Enum.GetNames(typeof(Personajes))), new { @class = "form-control" })
+    <span asp-validation-for="NombrePersonaje" class="text-danger"></span>
+</div>

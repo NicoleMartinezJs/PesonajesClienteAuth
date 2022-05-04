@@ -1,0 +1,29 @@
+﻿@model List<Personajes>
+@{
+    var ID = 0;
+}
+@foreach (Personajes emp in Model)
+{
+    ID = emp.IdSerie;
+}
+    <div>
+        <a asp-controller="Series" asp-action="DetallesSeries" asp-route-empno=@ID class="btn btn-danger">Volver</a>
+    </div>
+    <table class="table" style="background-color:white">
+        <thead class="thead-dark">
+            <tr>
+                @*<th>ID</th>*@
+                <th>PERSONAJE</th>
+                <th>IMAGEN</th>
+            </tr>
+            </thead>
+            @foreach (Personajes emp in Model)
+            {
+                <tr>
+                    @*<td>@emp.IdPersonaje</td>*@
+                    <td>@emp.NombrePersonaje</td>
+                    <td><img src="@emp.Imagen" style="width:150px;height:100px" /></td>
+
+                </tr>
+            }
+    </table>

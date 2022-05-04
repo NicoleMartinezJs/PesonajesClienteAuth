@@ -1,0 +1,14 @@
+﻿
+@inject PesonajesClienteAuth.Repositories.IRepositoryPersonajes Per
+
+
+<li class="nav-item dropdown">
+    <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Series</a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        @foreach (var item in await Per.GetSeries())
+        {
+            <a class="dropdown-item text-dark font-weight-bolder" asp-area="" asp-controller="Series" asp-action="DetallesSeries" asp-route-empno=@item.IdSerie>@item.NombreSerie</a>
+            }
+
+    </div>
+</li>

@@ -1,0 +1,31 @@
+﻿@model UsuariosAzure
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1 style="color:blue">Perfil de @Model.NombreUsuario</h1>
+@*<dl class="row">
+    <dt class="col-sm-3">ID</dt>
+    <dd class="col-sm-9">@Model.IdUsuario</dd>
+    <dt class="col-sm-3">Apellido</dt>
+    <dd class="col-sm-9">@Model.ApellidoUsuario</dd>
+    <dt class="col-sm-3">Email</dt>
+    <dd class="col-sm-9">@Model.Email</dd>
+
+</dl>*@
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Apellido</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+        <tr>
+            <td>@Model.IdUsuario</td>
+            <td>@Model.ApellidoUsuario</td>
+            <td>@Model.Email</td>
+
+        </tr>
+</table>

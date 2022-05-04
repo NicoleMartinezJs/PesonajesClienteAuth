@@ -1,0 +1,16 @@
+﻿@model UsuariosAzure
+@{
+    ViewData["Title"] = "DetallesEmpleado";
+}
+
+<h1>Detalles del empleado</h1>
+<a asp-controller="Empleados" asp-action="Index">
+    atrás
+</a>
+<dl>
+    <dt>Nombre: @Model.NombreUsuario</dt>
+    <dd>ID: @Model.IdUsuario</dd>
+    <dd>Apellido: @Model.ApellidoUsuario</dd>
+    <dd>Email: @Model.Email</dd>
+</dl>
+
